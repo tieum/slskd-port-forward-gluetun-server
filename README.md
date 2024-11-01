@@ -1,6 +1,16 @@
 # slskd-port-forward-gluetun-server
 A Python script and Docker container for automatically setting slskd listening port from Gluetun's control server within a Kubernetes cluster
 
+Logs contain ip / port to check for connectivity:
+```sh
+found pod slskd-7df96d4f79-nsvvq running in namespace slskd
+ip/port: 146.72.194.78 65310
+```
+```sh
+nc -vz 146.72.194.78 65310
+146.72.194.78 65310 open
+```
+
 See: https://github.com/slskd/slskd/issues/1011
 
 RBAC permission needed:
