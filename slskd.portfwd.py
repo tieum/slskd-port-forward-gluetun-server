@@ -32,7 +32,8 @@ for item in ret.items:
 update_port_command = [
     "/bin/sh",
     "-c",
-    "LISTEN_PORT=$(cat /tmp/gluetun/forwarded_port);sed -i 's/listen_port:.*/listen_port: '\"$LISTEN_PORT\"'/' /app/slskd.yml \
+    "LISTEN_PORT=$(cat /tmp/gluetun/forwarded_port) \
+  && sed -i 's/listen_port:.*/listen_port: '\"$LISTEN_PORT\"'/' /app/slskd.yml \
   && IP=$(wget -q -O - ifconfig.co) \
   && echo ip/port: $IP $LISTEN_PORT",
 ]
